@@ -31,11 +31,12 @@
 
   <script>
     // Initialize the Facebook SDK
+    window.fbAsyncInit = function() {
     FB.init({
-      appId      : '1336413153573222',
-      cookie     : true,
-      xfbml      : true,
-      version    : 'v12.0'
+        appId      : '1336413153573222',
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v11.0'
     });
 
     // Log in with Facebook
