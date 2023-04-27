@@ -30,28 +30,28 @@
   <script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
 
   <script>
-    // Initialize the Facebook SDK
-    window.fbAsyncInit = function() {
-    FB.init({
-        appId      : '1336413153573222',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v11.0'
-    });
+  function login() {
+    FB.login(function(response) {
+      if (response.authResponse) {
+        console.log('You are now logged in with Facebook.');
+        // You can now access the user's Facebook data
+        // using the response.authResponse.accessToken
+      } else {
+        console.log('Facebook login failed.');
+      }
+    }, {scope: 'public_profile,email'});
+  }
 
-    // Log in with Facebook
-    function login() {
-      FB.login(function(response) {
-        if (response.authResponse) {
-          console.log('You are now logged in with Facebook.');
-          // You can now access the user's Facebook data
-          // using the response.authResponse.accessToken
-        } else {
-          console.log('Facebook login failed.');
-        }
-      }, {scope: 'public_profile,email'});
-    }
-  </script>
+  // Initialize the Facebook SDK
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1336413153573222',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v11.0'
+    });
+  }
+</script>
 
 </body>
 </html>
