@@ -32,14 +32,15 @@
   <script>
   function login() {
     FB.login(function(response) {
-      if (response.authResponse) {
-        console.log('You are now logged in with Facebook.');
-        // You can now access the user's Facebook data
-        // using the response.authResponse.accessToken
-      } else {
-        console.log('Facebook login failed.');
-      }
-    }, {scope: 'pages_show_list,pages_manage_metadata,pages_manage_ads,leads_retrieval,whatsapp_business_management,whatsapp_business_management'});
+    if (response.authResponse) {
+      console.log('You are now logged in with Facebook.');
+      // Access the user's Facebook data using the access token
+      var accessToken = response.authResponse.accessToken;
+      console.log('Access token:', accessToken);
+    } else {
+      console.log('Facebook login failed.');
+    }
+    }, {scope: 'pages_show_list'});
   }
 
   // Initialize the Facebook SDK
